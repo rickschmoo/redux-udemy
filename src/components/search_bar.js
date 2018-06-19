@@ -18,8 +18,14 @@ class SearchBar extends Component {
 		// state 
 		// state change => component re-render
 		this.state = {
-			term: 'Starting value'
+			term: 'airfields'
 		}
+	}
+
+
+	onInputChange(term) {
+		this.setState({term});
+		this.props.onSearchTermChange(term);
 	}
 
 	// controlled form element
@@ -28,20 +34,12 @@ class SearchBar extends Component {
 	// 3. component re-renders, and input set to state
 	render() {
 		return (
-			<div>
+			<div className="search-bar">
 				<input 
 					value={this.state.term}
-					onChange={
-					(event) => {
-						console.log(event.target.value);
-						this.setState({
-							term: event.target.value
-						});
-					}
-				}/>
-				<div>
-					Value of state is {this.state.term}
-				</div>
+					onChange={event =>
+							this.onInputChange(event.target.value)}
+				/>
 			</div>
 		);
 	}
