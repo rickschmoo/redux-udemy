@@ -1,5 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import YTSearch from 'youtube-api-search';
+
 import SearchBar from './components/search_bar';
 
 const YOUTUBE_API_KEY='AIzaSyDX-9_zJuMQmVS4vLk-hF902XI43gHFCeo';
@@ -15,6 +17,13 @@ const YOUTUBE_API_KEY='AIzaSyDX-9_zJuMQmVS4vLk-hF902XI43gHFCeo';
 // 		</ol>
 // 	</div>;
 // }
+
+YTSearch(
+	{key: YOUTUBE_API_KEY, term: 'airfields'}, 
+	function(data) {
+		console.log(data);
+	}
+);
 
 const App = () => {
 	return (
